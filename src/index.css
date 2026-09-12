@@ -1,0 +1,421 @@
+@import url('https://api.fontshare.com/v2/css?f[]=boska@400,500,700,400i,500i,700i&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Food Companion — Editorial Design System
+   Warm, cinematic, immersive food-world aesthetic
+   All colors use HSL for theming consistency
+*/
+
+@layer base {
+  :root {
+    /* Warm parchment background */
+    --background: 36 33% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 36 20% 98%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 36 20% 98%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Deep charcoal primary */
+    --primary: 0 0% 10%;
+    --primary-foreground: 36 33% 97%;
+
+    /* Warm cream secondary */
+    --secondary: 36 20% 92%;
+    --secondary-foreground: 0 0% 10%;
+
+    /* Muted tones */
+    --muted: 36 15% 90%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Terracotta accent — the signature color */
+    --accent: 16 60% 52%;
+    --accent-foreground: 36 33% 97%;
+
+    /* Extended palette for Food Companion */
+    --terracotta: 16 60% 52%;
+    --terracotta-light: 16 60% 72%;
+    --terracotta-dark: 16 60% 38%;
+    --olive: 82 25% 40%;
+    --wine: 345 35% 35%;
+    --saffron: 42 95% 55%;
+    --sage: 120 18% 55%;
+    --cream: 40 40% 95%;
+    --charcoal: 0 0% 15%;
+
+    /* Mood colors */
+    --mood-cozy: 25 80% 55%;
+    --mood-energetic: 45 95% 52%;
+    --mood-refreshing: 185 60% 45%;
+    --mood-indulgent: 340 55% 45%;
+    --mood-adventurous: 262 50% 55%;
+    --mood-comforting: 28 70% 58%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 36 15% 85%;
+    --input: 36 15% 85%;
+    --ring: 16 60% 52%;
+
+    --radius: 0.375rem;
+
+    --sidebar-background: 36 20% 96%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 36 33% 97%;
+    --sidebar-accent: 36 20% 92%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 36 15% 85%;
+    --sidebar-ring: 16 60% 52%;
+  }
+
+  .dark {
+    --background: 24 8% 7%;
+    --foreground: 36 30% 94%;
+
+    --card: 24 8% 10%;
+    --card-foreground: 36 30% 94%;
+
+    --popover: 24 8% 10%;
+    --popover-foreground: 36 30% 94%;
+
+    --primary: 36 30% 94%;
+    --primary-foreground: 24 8% 7%;
+
+    --secondary: 24 8% 15%;
+    --secondary-foreground: 36 30% 94%;
+
+    --muted: 24 8% 18%;
+    --muted-foreground: 36 15% 58%;
+
+    --accent: 16 60% 52%;
+    --accent-foreground: 36 33% 97%;
+
+    --terracotta: 16 60% 52%;
+    --terracotta-light: 16 60% 65%;
+    --terracotta-dark: 16 60% 42%;
+    --olive: 82 25% 50%;
+    --wine: 345 35% 45%;
+    --saffron: 42 90% 55%;
+    --sage: 120 18% 58%;
+    --cream: 36 20% 15%;
+    --charcoal: 0 0% 85%;
+
+    --mood-cozy: 25 80% 58%;
+    --mood-energetic: 45 90% 55%;
+    --mood-refreshing: 185 60% 48%;
+    --mood-indulgent: 340 55% 50%;
+    --mood-adventurous: 262 50% 58%;
+    --mood-comforting: 28 70% 60%;
+
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 24 8% 22%;
+    --input: 24 8% 22%;
+    --ring: 16 60% 52%;
+
+    --sidebar-background: 24 8% 10%;
+    --sidebar-foreground: 36 30% 94%;
+    --sidebar-primary: 36 30% 94%;
+    --sidebar-primary-foreground: 24 8% 7%;
+    --sidebar-accent: 24 8% 15%;
+    --sidebar-accent-foreground: 36 30% 94%;
+    --sidebar-border: 24 8% 22%;
+    --sidebar-ring: 16 60% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Boska', serif;
+  }
+
+  a, button {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  img {
+    @apply transition-opacity duration-500 ease-out;
+  }
+}
+
+@layer components {
+  /* ─── Typography ─── */
+  .micro-caption {
+    @apply text-xs tracking-widest uppercase;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.12em;
+  }
+
+  .heading-display {
+    font-family: 'Playfair Display', serif;
+    @apply text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight;
+  }
+
+  .heading-editorial {
+    font-family: 'Playfair Display', serif;
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight;
+  }
+
+  .heading-section {
+    font-family: 'Playfair Display', serif;
+    @apply text-2xl md:text-3xl font-medium;
+  }
+
+  .body-editorial {
+    font-family: 'DM Sans', sans-serif;
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  /* ─── Interactive elements ─── */
+  .editorial-link {
+    @apply relative inline-block;
+  }
+  .editorial-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-current origin-bottom-right transition-transform duration-500 ease-out scale-x-0;
+  }
+  .editorial-link:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 12px 48px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  .editorial-image {
+    @apply transition-all duration-700 ease-out;
+  }
+  .editorial-image:hover {
+    @apply scale-[1.03];
+  }
+
+  /* ─── Food card components ─── */
+  .food-card {
+    @apply relative overflow-hidden rounded-lg bg-card border border-border transition-all duration-500 ease-out;
+  }
+  .food-card:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+  .food-card:hover .food-card-image {
+    @apply scale-105;
+  }
+
+  .food-card-image {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  /* ─── Mood pills ─── */
+  .mood-pill {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer border;
+  }
+  .mood-pill.selected {
+    @apply ring-2 ring-offset-1;
+  }
+
+  /* ─── Scan/Analysis UI ─── */
+  .scan-line {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      hsl(var(--accent) / 0.5) 50%,
+      transparent 100%
+    );
+    animation: scan 2s linear infinite;
+  }
+
+  /* ─── Glass morphism ─── */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ─── Visual score bar ─── */
+  .score-bar {
+    @apply relative h-2 rounded-full overflow-hidden bg-muted;
+  }
+  .score-bar-fill {
+    @apply absolute inset-y-0 left-0 rounded-full transition-all duration-1000 ease-out;
+    background: linear-gradient(to right, hsl(var(--terracotta)), hsl(var(--saffron)));
+  }
+
+  /* ─── Flavor tag ─── */
+  .flavor-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground border border-border;
+  }
+
+  /* ─── Step indicator ─── */
+  .step-indicator {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300;
+  }
+
+  /* ─── Hero gradient overlays ─── */
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(var(--background) / 0.4) 50%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  .hero-gradient-dark {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--background) / 0.1) 0%,
+      hsl(var(--background) / 0.6) 60%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  /* ─── Star rating ─── */
+  .star-input label {
+    @apply cursor-pointer transition-all duration-150;
+  }
+  .star-input input {
+    @apply sr-only;
+  }
+
+  /* ─── Layout utilities ─── */
+  .section-breathing {
+    @apply py-20 md:py-32 lg:py-40;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .fade-up {
+    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+  }
+  .fade-up.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@layer utilities {
+  /* ─── Animations ─── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes scan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0.4); }
+    50% { box-shadow: 0 0 0 12px hsl(var(--accent) / 0); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes reveal-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .floating-item { animation: float 6s ease-in-out infinite; }
+  .floating-item-delay-1 { animation: float 6s ease-in-out 0.5s infinite; }
+  .floating-item-delay-2 { animation: float 6s ease-in-out 1s infinite; }
+  .floating-item-delay-3 { animation: float 6s ease-in-out 1.5s infinite; }
+  .floating-item-delay-4 { animation: float 6s ease-in-out 2s infinite; }
+  .floating-item-delay-5 { animation: float 6s ease-in-out 2.5s infinite; }
+
+  .animate-scan { animation: scan 2s linear infinite; }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--muted) / 0.5) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  .animate-reveal-up { animation: reveal-up 0.6s ease-out both; }
+  .animate-fade-in { animation: fade-in 0.5s ease-out both; }
+
+  /* Staggered delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--terracotta)), hsl(var(--saffron)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Mood-specific colors */
+  .mood-cozy { color: hsl(var(--mood-cozy)); border-color: hsl(var(--mood-cozy)); }
+  .mood-energetic { color: hsl(var(--mood-energetic)); border-color: hsl(var(--mood-energetic)); }
+  .mood-refreshing { color: hsl(var(--mood-refreshing)); border-color: hsl(var(--mood-refreshing)); }
+  .mood-indulgent { color: hsl(var(--mood-indulgent)); border-color: hsl(var(--mood-indulgent)); }
+  .mood-adventurous { color: hsl(var(--mood-adventurous)); border-color: hsl(var(--mood-adventurous)); }
+  .mood-comforting { color: hsl(var(--mood-comforting)); border-color: hsl(var(--mood-comforting)); }
+
+  .bg-mood-cozy { background-color: hsl(var(--mood-cozy) / 0.12); }
+  .bg-mood-energetic { background-color: hsl(var(--mood-energetic) / 0.12); }
+  .bg-mood-refreshing { background-color: hsl(var(--mood-refreshing) / 0.12); }
+  .bg-mood-indulgent { background-color: hsl(var(--mood-indulgent) / 0.12); }
+  .bg-mood-adventurous { background-color: hsl(var(--mood-adventurous) / 0.12); }
+  .bg-mood-comforting { background-color: hsl(var(--mood-comforting) / 0.12); }
+
+  /* Noise texture overlay */
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 1;
+  }
+}
